@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preethi R — IT Fresher / Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10161c;
+    --ink-2:#161f27;
+    --paper:#f2ede0;
+    --paper-dim:#c9c3b3;
+    --signal:#e3b23c;
+    --wire:#5f95a6;
+    --link:#5aa4f2;
+    --link-hover:#8cc4ff;
+    --muted:#7c8a99;
+    --line:rgba(242,237,224,0.12);
+    --line-strong:rgba(242,237,224,0.22);
+    --display:'Space Grotesk',sans-serif;
+    --body:'Newsreader',serif;
+    --mono:'JetBrains Mono',monospace;
+    --max:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--signal);color:var(--ink);}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--signal);
+    outline-offset:3px;
+  }
+  img,svg{max-width:100%;display:block;}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+  .link-blue{
+    color:var(--link);
+    text-decoration:underline;
+    text-decoration-color:rgba(90,164,242,0.4);
+    text-underline-offset:3px;
+    transition:color .15s ease, text-decoration-color .15s ease;
+  }
+  .link-blue:hover{color:var(--link-hover);text-decoration-color:var(--link-hover);}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:20;
+    background:rgba(16,22,28,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .nav-mark{
+    font-family:var(--mono);font-size:14px;letter-spacing:0.02em;color:var(--signal);
+    text-decoration:none;
+  }
+  .nav-links{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+  .nav-links a{
+    font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;
+    letter-spacing:0.03em;transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--paper);}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 56px;border-bottom:1px solid var(--line);}
+  .status-line{
+    font-family:var(--mono);font-size:12.5px;color:var(--wire);
+    display:flex;align-items:center;gap:10px;margin-bottom:28px;letter-spacing:0.02em;
+    flex-wrap:wrap;
+  }
+  .status-dot{
+    width:7px;height:7px;border-radius:50%;background:var(--wire);
+    box-shadow:0 0 0 3px rgba(95,149,166,0.18);
+    flex-shrink:0;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(38px,7vw,64px);
+    line-height:1.05;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+    word-break:break-word;
+  }
+  .hero h1 .accent{color:var(--signal);}
+  .hero .role{
+    font-family:var(--mono);
+    font-size:14px;
+    color:var(--wire);
+    margin:0 0 28px;
+    letter-spacing:0.02em;
+    line-height:1.7;
+  }
+  .hero p.lede{
+    font-family:var(--body);font-size:19px;color:var(--paper-dim);
+    max-width:60ch;margin:0 0 34px;
+  }
+  .hero p.lede strong{color:var(--paper);font-weight:500;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono);font-size:13px;letter-spacing:0.02em;
+    padding:12px 20px;border-radius:3px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--line-strong);
+    transition:border-color .15s ease, transform .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--signal);color:var(--ink);border-color:var(--signal);font-weight:500;}
+  .btn-primary:hover{transform:translateY(-1px);background:#eec25a;}
+  .btn-ghost{color:var(--link);border-color:rgba(90,164,242,0.4);}
+  .btn-ghost:hover{border-color:var(--link);color:var(--link-hover);}
+
+  /* ---------- section headings ---------- */
+  .section{padding:60px 0;border-bottom:1px solid var(--line);}
+  .section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex;align-items:baseline;gap:14px;margin-bottom:36px;
+    flex-wrap:wrap;
+  }
+  .section-head .field{
+    font-family:var(--mono);font-size:12.5px;color:var(--muted);
+    letter-spacing:0.06em;text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .section-head h2{
+    font-family:var(--display);font-weight:600;font-size:28px;margin:0;
+  }
+  .section-head::after{
+    content:'';flex:1;height:1px;background:var(--line);
+    min-width:20px;
+  }
+
+  /* ---------- about / objective ---------- */
+  .about p{color:var(--paper-dim);max-width:70ch;margin:0;}
+
+  /* ---------- projects as records ---------- */
+  .record{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:0 32px;
+    padding:28px 0;
+    border-top:1px solid var(--line);
+  }
+  .record .meta{
+    font-family:var(--mono);font-size:12px;color:var(--muted);line-height:2;
+  }
+  .record .meta .k{color:var(--wire);}
+  .record h3{
+    font-family:var(--display);font-size:22px;font-weight:600;margin:0 0 10px;
+    line-height:1.3;
+  }
+  .record ul{margin:0 0 16px;padding-left:18px;color:var(--paper-dim);}
+  .record ul li{margin-bottom:6px;max-width:62ch;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .tag{
+    font-family:var(--mono);font-size:11.5px;color:var(--paper);
+    border:1px solid var(--line-strong);padding:4px 10px;border-radius:20px;
+    letter-spacing:0.02em;
+    white-space:nowrap;
+  }
+  .record-link{
+    font-family:var(--mono);font-size:12.5px;
+  }
+  @media (max-width:640px){
+    .record{grid-template-columns:1fr;gap:8px;}
+    .record .meta{
+      display:flex;flex-wrap:wrap;gap:4px 14px;line-height:1.8;margin-bottom:6px;
+    }
+  }
+
+  /* ---------- skills ---------- */
+  .skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  @media (max-width:640px){.skill-groups{grid-template-columns:1fr;}}
+  .skill-group{min-width:0;}
+  .skill-group .field{
+    font-family:var(--mono);font-size:12px;color:var(--wire);
+    letter-spacing:0.05em;text-transform:uppercase;margin-bottom:14px;display:block;
+  }
+  .skill-list{display:flex;flex-wrap:wrap;gap:9px;}
+  .skill-list span{
+    font-family:var(--mono);font-size:13px;
+    padding:6px 12px;border:1px solid var(--line);border-radius:3px;
+    color:var(--paper-dim);
+  }
+
+  /* ---------- certifications ---------- */
+  .cert-list{list-style:none;margin:0;padding:0;}
+  .cert-list li{
+    display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line);
+    color:var(--paper-dim);
+  }
+  .cert-list li:last-child{border-bottom:1px solid var(--line);}
+  .cert-list .bullet{color:var(--signal);font-family:var(--mono);flex-shrink:0;}
+
+  /* ---------- education / internship ---------- */
+  .timeline{display:flex;flex-direction:column;}
+  .tl-item{
+    display:grid;grid-template-columns:140px 1fr;gap:0 32px;
+    padding:22px 0;border-top:1px solid var(--line);
+  }
+  .tl-item:last-child{border-bottom:1px solid var(--line);}
+  .tl-item .when{
+    font-family:var(--mono);font-size:12px;color:var(--wire);line-height:1.8;
+  }
+  .tl-item h4{font-family:var(--display);font-size:18px;margin:0 0 4px;font-weight:600;}
+  .tl-item .org{color:var(--paper-dim);font-size:15px;margin:0 0 6px;}
+  .tl-item .score{
+    font-family:var(--mono);font-size:12.5px;color:var(--muted);
+  }
+  .tl-item ul{margin:8px 0 0;padding-left:18px;color:var(--paper-dim);font-size:16px;}
+  @media (max-width:640px){
+    .tl-item{grid-template-columns:1fr;gap:6px;}
+  }
+
+  /* ---------- contact / footer ---------- */
+  footer{padding:64px 0 48px;}
+  footer .field{
+    font-family:var(--mono);font-size:12.5px;color:var(--muted);
+    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;
+  }
+  footer h2{
+    font-family:var(--display);font-weight:600;font-size:clamp(26px,5vw,40px);
+    margin:0 0 30px;max-width:18ch;
+  }
+  .contact-rows{display:flex;flex-direction:column;border-top:1px solid var(--line);}
+  .contact-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;border-bottom:1px solid var(--line);
+    text-decoration:none;gap:12px;
+    transition:padding-left .15s ease;
+  }
+  .contact-row:hover{padding-left:8px;}
+  .contact-row .k{font-family:var(--mono);font-size:13px;color:var(--muted);display:block;margin-bottom:3px;}
+  .contact-row .v{
+    font-family:var(--display);font-size:18px;color:var(--link);
+    word-break:break-all;
+  }
+  .contact-row:hover .v{color:var(--link-hover);}
+  .contact-row .arrow{font-family:var(--mono);color:var(--wire);flex-shrink:0;}
+  .foot-note{
+    margin-top:40px;font-family:var(--mono);font-size:11.5px;color:var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-mark" href="#top">preethi556.github.io</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<div id="top" class="wrap">
+  <section class="hero">
+    <div class="status-line">
+      <span class="status-dot"></span>
+      <span>open to entry-level IT roles · open to relocation</span>
+    </div>
+    <h1>Preethi <span class="accent">R.</span></h1>
+    <p class="role">IT FRESHER — JAVA · PYTHON · SPRING BOOT · AI/ML · REST APIs</p>
+    <p class="lede">I'm an IT graduate with a strong foundation in <strong>Java, Python, Spring Boot, HTML/CSS, MySQL and DBMS</strong>. I've built REST APIs through a Spring Boot microservices project and explored AI/ML, NLP, and IoT through hands-on coursework — and I'm looking for an entry-level role where I can keep building things that work.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="assets/Preethi_R_Resume.pdf" target="_blank" rel="noopener" download="Preethi_R_Resume.pdf">Download Resume ↓</a>
+      <a class="btn btn-ghost" href="https://github.com/Preethi556" target="_blank" rel="noopener">View GitHub ↗</a>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+
+  <section class="section about" id="about">
+    <div class="section-head">
+      <span class="field">Career objective</span>
+      <h2>About</h2>
+    </div>
+    <p>IT fresher with a strong foundation in Java, Python, Spring Boot, HTML, CSS, MySQL, and DBMS, seeking an entry-level IT role to apply my skills in software development, problem-solving, and technical troubleshooting. Hands-on experience building REST APIs through a Spring Boot–based microservices project, along with AI/ML, NLP, and IoT projects delivering measurable outcomes. Strong analytical skills, and a genuine willingness to learn new technologies and collaborate effectively within cross-functional teams.</p>
+  </section>
+
+  <section class="section" id="work">
+    <div class="section-head">
+      <span class="field">Selected work</span>
+      <h2>Projects</h2>
+    </div>
+
+    <div class="record">
+      <div class="meta">
+        <div><span class="k">stack</span> Java, Spring Boot</div>
+        <div><span class="k">year</span> 2026</div>
+        <div><span class="k">status</span> shipped</div>
+      </div>
+      <div>
+        <h3>Employee Payroll Microservices System</h3>
+        <ul>
+          <li>Built a Spring Boot microservices application using REST APIs and MySQL.</li>
+          <li>Designed independent services for employee records, salary computation, and payroll processing.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">MySQL</span>
+        </div>
+        <a class="record-link link-blue" href="https://github.com/Preethi556/employee-payroll-microservices" target="_blank" rel="noopener">View repository →</a>
+      </div>
+    </div>
+
+    <div class="record">
+      <div class="meta">
+        <div><span class="k">stack</span> Python, AI/ML, NLP</div>
+        <div><span class="k">year</span> 2024–25</div>
+        <div><span class="k">status</span> shipped</div>
+      </div>
+      <div>
+        <h3>Cyberbullying Detection using BERT Multimodal Aspects</h3>
+        <ul>
+          <li>Developed a multimodal cyberbullying detection system using BERT for text analysis and Pytesseract (OCR) to extract text from images.</li>
+          <li>Implemented the solution in Python using the Kaggle Cyberbullying Dataset to detect abusive content from both text and image-based inputs.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">BERT / NLP</span>
+          <span class="tag">Pytesseract OCR</span>
+          <span class="tag">PHP</span>
+          <span class="tag">MySQL</span>
+        </div>
+        <a class="record-link link-blue" href="https://github.com/Preethi556/cyberbullying-detection-bert" target="_blank" rel="noopener">View repository →</a>
+      </div>
+    </div>
+
+    <div class="record">
+      <div class="meta">
+        <div><span class="k">stack</span> Arduino, IoT</div>
+        <div><span class="k">year</span> 2023</div>
+        <div><span class="k">status</span> shipped</div>
+      </div>
+      <div>
+        <h3>Air Quality Monitoring System</h3>
+        <ul>
+          <li>Developed an IoT-based air quality monitoring system using Arduino Uno, NodeMCU, MQ135, DHT11, and Blynk.</li>
+          <li>Enabled real-time monitoring of air quality, temperature, and humidity through the Blynk IoT application.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">NodeMCU</span>
+          <span class="tag">MQ135</span>
+          <span class="tag">DHT11</span>
+          <span class="tag">Blynk</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-head">
+      <span class="field">Toolbox</span>
+      <h2>Technical Summary</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <span class="field">Languages &amp; Backend</span>
+        <div class="skill-list">
+          <span>Java</span><span>Python</span><span>Spring Boot</span>
+          <span>REST APIs</span><span>Microservices</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="field">Web &amp; Data</span>
+        <div class="skill-list">
+          <span>HTML</span><span>CSS</span><span>MySQL</span><span>DBMS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="field">AI / ML</span>
+        <div class="skill-list">
+          <span>Machine Learning</span><span>Deep Learning</span><span>NLP</span><span>BERT</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="field">Core CS &amp; Platforms</span>
+        <div class="skill-list">
+          <span>Data Structures &amp; Algorithms</span><span>OOP</span><span>Operating Systems</span>
+          <span>Computer Networks</span><span>SQL</span><span>Git</span><span>Arduino / Embedded</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="certifications">
+    <div class="section-head">
+      <span class="field">Recognition</span>
+      <h2>Certifications</h2>
+    </div>
+    <ul class="cert-list">
+      <li><span class="bullet">›</span><span>Certified in Java Programming</span></li>
+      <li><span class="bullet">›</span><span>Certified in Machine Learning and Deep Learning</span></li>
+      <li><span class="bullet">›</span><span>Presented paper "Cyberbullying Detection using BERT Multimodal Aspects" at ICNEXT'25</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="education">
+    <div class="section-head">
+      <span class="field">Background</span>
+      <h2>Education</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="when">2021–2025</div>
+        <div>
+          <h4>B.Tech, Information Technology</h4>
+          <p class="org">Manakula Vinayagar Institute of Technology, Puducherry</p>
+          <div class="score">CGPA: 8.29</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="when">2020–2021</div>
+        <div>
+          <h4>HSC</h4>
+          <p class="org">Maruthi Matric Higher Secondary School, Puducherry</p>
+          <div class="score">Score: 86.29%</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="when">2018–2019</div>
+        <div>
+          <h4>SSLC</h4>
+          <p class="org">Maruthi Matric Higher Secondary School, Puducherry</p>
+          <div class="score">Score: 79.6%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="internship">
+    <div class="section-head">
+      <span class="field">Experience</span>
+      <h2>Internship</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="when">Feb 2023</div>
+        <div>
+          <h4>IoT Intern</h4>
+          <p class="org">VEI Technologies Pvt. Ltd.</p>
+          <ul>
+            <li>Learned IoT concepts, Arduino programming, and sensor interfacing.</li>
+            <li>Assisted in developing and testing a basic IoT mini project using Arduino and sensors.</li>
+            <li>Submitted a mini project report as part of the internship.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="field">Get in touch</div>
+    <h2>Let's build something reliable.</h2>
+    <div class="contact-rows">
+      <a class="contact-row" href="mailto:preethiramadoss28@gmail.com">
+        <span><span class="k">email</span><span class="v">preethiramadoss28@gmail.com</span></span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="contact-row" href="https://www.linkedin.com/in/preethi-ramadoss" target="_blank" rel="noopener">
+        <span><span class="k">linkedin</span><span class="v">linkedin.com/in/preethi-ramadoss</span></span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="contact-row" href="https://github.com/Preethi556" target="_blank" rel="noopener">
+        <span><span class="k">github</span><span class="v">github.com/Preethi556</span></span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="contact-row" href="tel:+917418240905">
+        <span><span class="k">phone</span><span class="v">+91 7418240905</span></span>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+    <div class="foot-note">Pondicherry, India · open to relocation · updated 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
